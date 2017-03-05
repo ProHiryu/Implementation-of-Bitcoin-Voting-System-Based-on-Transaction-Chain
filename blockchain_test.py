@@ -34,4 +34,6 @@ for transaction in transactions:
     for op in outputs:
         print (op.address)
 
+
+
 # print (latest_block.hash,latest_block.time,latest_block.height,latest_block.block_index)

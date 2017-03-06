@@ -68,9 +68,12 @@ for block in blocks:
         # print('ouput tx_index : ' + str(op.tx_index))
         # print(op.spent)
 
-
-for addresss in inputs_address:
-    for address in addresss:
-        print(address)
+for i in range(len(inputs_address)):
+    print('The No.' + str(i + 1) + 'transaction')
+    for address in inputs_address[i]:
+        print('The input address: ' + str(address))
+    for address in outputs_address[i]:
+        print('The output address: ' + str(address))
+    print('')
 
 # print (latest_block.hash,latest_block.time,latest_block.height,latest_block.block_index)

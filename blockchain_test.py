@@ -18,22 +18,59 @@ from blockchain import blockexplorer
 
 latest_block = blockexplorer.get_latest_block()
 
-block = blockexplorer.get_block(latest_block.hash)
-transactions = []
+latest_height = latest_block.height
 
-transactions = block.transactions
+blocks = []
 
-for transaction in transactions:
-    inputs = transaction.inputs
-    outputs = transaction.outputs
-    for ip in inputs:
-        try:
-            print('- - - - -' + ip.address)
-        except AttributeError:
-            print ('')
-    for op in outputs:
-        print (op.address)
+for i in range(3):
+    height = latest_height - i
+    blockss = blockexplorer.get_block_height(height)
+    block = blockss[0]
+    blocks.append(block)
+
+inputs_address = []
+outputs_address = []
+
+for block in blocks:
+    transactions = []
+    transactions = block.transactions
+
+    for transaction in transactions:
+        inputs = transaction.inputs
+        outputs = transaction.outputs
+        inputs_temp = []
+        for ip in inputs:
+            try:
+                inputs_temp.append(ip.address)
+            except AttributeError:
+                print ('woops')
+
+        inputs_address.append(inputs_temp)
+
+        # try:
+        #     print('- - - - - input address : ' + ip.address)
+        #     print('- - - - - input value : ' + str(ip.value))
+        #     print('- - - - - input tx_index : ' + str(ip.tx_index))
+        #     print('- - - - - input n : ' + str(ip.n))
+        #     print('- - - - - input type :' + str(ip.type))
+        # except AttributeError:
+        #     print ('')
+
+        outputs_temp = []
+        for op in outputs:
+            outputs_temp.append(op.address)
+
+        outputs_address.append(outputs_temp)
+
+        # print('output address : ' + str(op.address))
+        # print('output value : ' + str(op.value))
+        # print('output n : ' + str(op.n))
+        # print('ouput tx_index : ' + str(op.tx_index))
+        # print(op.spent)
 
 
+for addresss in inputs_address:
+    for address in addresss:
+        print(address)
 
 # print (latest_block.hash,latest_block.time,latest_block.height,latest_block.block_index)

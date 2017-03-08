@@ -2,7 +2,6 @@
 
 My Graduate Project
 
-
 > 由于bitcoin core的数据还在下载，所以今天的主要目的就是利用api等各种获取数据的方法，对近期产生的交易稍微做一些分析，主要之前有一些这方面的经验，做起来应该会比较顺利
 
 # resources
@@ -205,3 +204,13 @@ urllib.error.URLError: <urlopen error [Errno 8] nodename nor servname provided, 
 ```
 
 查阅资料发现应该是网络问题，尝试ping blockchain.com发现并不能ping通，所以应该是代理出现了问题，稍微等一会
+
+- atom turn off key board resolver --- cmd + .
+- get unique elements in list --- set function
+
+dict sorted:
+
+```python
+last = sorted(results.items(), key=lambda t: t[1], reverse=True)
+# get tuple back
+```

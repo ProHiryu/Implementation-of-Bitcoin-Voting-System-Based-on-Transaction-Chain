@@ -68,12 +68,53 @@ for block in blocks:
         # print('ouput tx_index : ' + str(op.tx_index))
         # print(op.spent)
 
-for i in range(len(inputs_address)):
-    print('The No.' + str(i + 1) + 'transaction')
-    for address in inputs_address[i]:
-        print('The input address: ' + str(address))
+# # show all the data
+#
+# for i in range(len(inputs_address)):
+#     if len(outputs_address[i]) > 1:
+#         continue
+#     else:
+#         print('The No.' + str(i + 1) + 'transaction')
+#         for address in inputs_address[i]:
+#             print('The input address: ' + str(address))
+#         for address in outputs_address[i]:
+#             print('The output address: ' + str(address))
+#         print('')
+
+
+voters = []
+candidates = []
+
+for i in range(len(outputs_address)):
     for address in outputs_address[i]:
-        print('The output address: ' + str(address))
-    print('')
+        if address not in candidates:
+            candidates.append(address)
+
+for i in range(len(inputs_address)):
+    if len(outputs_address[i]) > 1:
+        continue
+    else:
+        for address in inputs_address[i]:
+            if address not in voters:
+                voters.append(address)
+                candidates.append(outputs_address[i][0])
+
+
+# print candidates
+
+# for candidate in candidates:
+#     print (candidate)
+
+results = dict()
+
+for candidate in set(candidates):
+    results[candidate] = candidates.count(candidate)
+
+last = sorted(results.items(), key=lambda t: t[1], reverse=True)
+
+for (x, y) in last:
+    if y > 1:
+        print(x, ' : ', y)
+
 
 # print (latest_block.hash,latest_block.time,latest_block.height,latest_block.block_index)

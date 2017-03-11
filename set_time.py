@@ -35,7 +35,7 @@ unix_end_time = int(time.mktime(tuple_end_time))
 print(unix_end_time, unix_start_time)
 
 
-blocks = blockexplorer.get_blocks(time=(unix_start_time * 10000 + 3455))
+blocks = blockexplorer.get_blocks(time=(unix_start_time * 1000 + 455))
 
 for block in blocks:
     value = time.localtime(block.time)

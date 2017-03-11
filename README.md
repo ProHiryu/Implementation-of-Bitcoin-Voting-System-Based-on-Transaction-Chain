@@ -214,3 +214,31 @@ dict sorted:
 last = sorted(results.items(), key=lambda t: t[1], reverse=True)
 # get tuple back
 ```
+
+关于格林尼治时间戳的转换很简单，只需要调用time和datetime库就可以了，但是有一个问题，在发送API数据的时候，无论如何都得不到对应当天的blocks，最后我通过对比[网站]("https://blockchain.info/blocks/1487928323455")上不同天数对应的时间戳最后得到相应形式，就是：
+
+'xxxx-xx-xx 17:25:23'
+
+部分代码如下：
+
+```python
+str_start_time = str_start_time_init[0:10] + ' 17:25:23'
+str_end_time = str_end_time_init[0:10] + ' 17:25:23'
+
+
+print('The time: ',str_start_time+ ' - ',str_end_time)
+
+tuple_start_time = time.strptime(str_start_time, '%Y-%m-%d %H:%M:%S')
+tuple_end_time = time.strptime(str_end_time, '%Y-%m-%d %H:%M:%S')
+
+unix_start_time = int(time.mktime(tuple_start_time))
+unix_end_time = int(time.mktime(tuple_end_time))
+
+print(unix_end_time, unix_start_time)
+```
+
+调用的是：
+
+```python
+blockexplorer.get_blocks()
+```

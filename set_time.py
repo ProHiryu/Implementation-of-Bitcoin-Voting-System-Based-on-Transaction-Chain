@@ -1,6 +1,9 @@
 from blockchain import blockexplorer
 import time
 import datetime
+from blockchain import util
+
+util.TIMEOUT = 5 #time out after 5 seconds
 
 # blocks = blockexplorer.get_blocks()
 #

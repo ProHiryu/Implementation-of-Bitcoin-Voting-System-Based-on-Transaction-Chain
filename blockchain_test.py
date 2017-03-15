@@ -1,5 +1,6 @@
 from blockchain import blockexplorer
-import set_time
+from set_time import set_time
+from set_candidates import set_candidates
 from blockchain import util
 
 util.TIMEOUT = 5  # time out after 5 seconds
@@ -20,7 +21,7 @@ util.TIMEOUT = 5  # time out after 5 seconds
 #
 # txs = blockexplorer.get_unconfirmed_tx()
 
-start_height, end_height = set_time.set_time()
+start_height, end_height = set_time()
 
 # latest_block = blockexplorer.get_latest_block()
 #

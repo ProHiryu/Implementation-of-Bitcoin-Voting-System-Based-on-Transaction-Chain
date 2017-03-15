@@ -3,6 +3,8 @@ from set_time import set_time
 from set_candidates import set_candidates
 from blockchain import util
 
+# blockchain.key = '08bd4d55-2b1e-4405-99e0-40c769e98729'
+
 util.TIMEOUT = 5  # time out after 5 seconds
 
 # block = blockexplorer.get_block(
@@ -23,11 +25,14 @@ util.TIMEOUT = 5  # time out after 5 seconds
 
 start_height, end_height = set_time()
 
+# start_height = 452379
+# end_height = 452385
+
 # latest_block = blockexplorer.get_latest_block()
 #
 # latest_height = latest_block.height
 
-print(start_height,end_height)
+print(start_height, end_height)
 
 blocks = []
 
@@ -107,6 +112,14 @@ for i in range(len(inputs_address)):
                 voters.append(address)
                 candidates.append(outputs_address[i][0])
 
+# get voters
+
+# voter_file = open('voters.txt', 'w')
+# for voter in voters:
+#     voter = voter + '\n'
+#     voter_file.write(voter)
+#
+# voter_file.close()
 
 # print candidates
 
@@ -120,9 +133,14 @@ for candidate in set(candidates):
 
 last = sorted(results.items(), key=lambda t: t[1], reverse=True)
 
+candidate_file = open('candidates.txt', 'w')
+
 for (x, y) in last:
     if y > 10:
         print(x, ' : ', y)
+        # line = x + ' : ' + str(y) + '\n'
+        # candidate_file.write(line)
 
+# candidate_file.close()
 
 # print (latest_block.hash,latest_block.time,latest_block.height,latest_block.block_index)

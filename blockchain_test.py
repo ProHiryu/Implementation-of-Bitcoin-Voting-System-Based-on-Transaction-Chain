@@ -1,7 +1,8 @@
 from blockchain import blockexplorer
-
+import set_time
 from blockchain import util
-util.TIMEOUT = 5 #time out after 5 seconds
+
+util.TIMEOUT = 5  # time out after 5 seconds
 
 # block = blockexplorer.get_block(
 #     '000000000000000016f9a2c3e0f4c1245ff24856a79c34806969f5084f410680')
@@ -19,14 +20,17 @@ util.TIMEOUT = 5 #time out after 5 seconds
 #
 # txs = blockexplorer.get_unconfirmed_tx()
 
-latest_block = blockexplorer.get_latest_block()
+start_height, end_height = set_time.set_time()
 
-latest_height = latest_block.height
+# latest_block = blockexplorer.get_latest_block()
+#
+# latest_height = latest_block.height
+
+print(start_height,end_height)
 
 blocks = []
 
-for i in range(3):
-    height = latest_height - i
+for height in range(start_height, end_height):
     blockss = blockexplorer.get_block_height(height)
     block = blockss[0]
     blocks.append(block)
@@ -116,7 +120,7 @@ for candidate in set(candidates):
 last = sorted(results.items(), key=lambda t: t[1], reverse=True)
 
 for (x, y) in last:
-    if y > 1:
+    if y > 10:
         print(x, ' : ', y)
 
 

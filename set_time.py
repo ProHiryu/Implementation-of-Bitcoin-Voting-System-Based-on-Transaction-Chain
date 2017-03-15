@@ -5,7 +5,7 @@ from blockchain import util
 
 util.TIMEOUT = 5  # time out after 5 seconds
 
-def set_time():
+def set_time(step = 3):
 
     # blocks = blockexplorer.get_blocks()
     #
@@ -67,13 +67,13 @@ def set_time():
 
     if block.time < unix_start_time_whole:
         while(block.time < unix_start_time_whole):
-            start_height += 3
+            start_height += step
             blockss = blockexplorer.get_block_height(start_height)
             block = blockss[0]
             print(block.time, unix_start_time_whole)
     else:
         while(block.time > unix_start_time_whole):
-            start_height += 3
+            start_height += step
             blockss = blockexplorer.get_block_height(start_height)
             block = blockss[0]
             print(block.time, unix_start_time_whole)
@@ -88,13 +88,13 @@ def set_time():
 
     if block.time < unix_end_time_whole:
         while(block.time < unix_end_time_whole):
-            end_height += 3
+            end_height += step
             blockss = blockexplorer.get_block_height(end_height)
             block = blockss[0]
             print(block.time, unix_end_time_whole)
     else:
         while(block.time > unix_end_time_whole):
-            end_height += 3
+            end_height += step
             blockss = blockexplorer.get_block_height(end_height)
             block = blockss[0]
             print(block.time, unix_end_time_whole)

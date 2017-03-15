@@ -1,11 +1,14 @@
 from blockchain import blockexplorer
 from set_time import set_time
+from set_voters import set_voters
 from set_candidates import set_candidates
 from blockchain import util
 
 # blockchain.key = '08bd4d55-2b1e-4405-99e0-40c769e98729'
 
 util.TIMEOUT = 5  # time out after 5 seconds
+
+step = 3
 
 # block = blockexplorer.get_block(
 #     '000000000000000016f9a2c3e0f4c1245ff24856a79c34806969f5084f410680')
@@ -23,10 +26,13 @@ util.TIMEOUT = 5  # time out after 5 seconds
 #
 # txs = blockexplorer.get_unconfirmed_tx()
 
-start_height, end_height = set_time()
+voters_init = set_voters()
+candidates_init = set_candidates()
 
-# start_height = 452379
-# end_height = 452385
+start_height = 452379
+end_height = 452385
+
+# start_height, end_height = set_time(step = 3)
 
 # latest_block = blockexplorer.get_latest_block()
 #
@@ -94,6 +100,8 @@ for block in blocks:
 #             print('The output address: ' + str(address))
 #         print('')
 
+valid = 0
+invalid = 0
 
 voters = []
 candidates = []
@@ -103,14 +111,20 @@ for i in range(len(outputs_address)):
         if address not in candidates:
             candidates.append(address)
 
+total = len(inputs_address)
+
 for i in range(len(inputs_address)):
     if len(outputs_address[i]) > 1:
         continue
     else:
         for address in inputs_address[i]:
-            if address not in voters:
-                voters.append(address)
-                candidates.append(outputs_address[i][0])
+            if address in voters_init:
+                if address not in voters:
+                    voters.append(address)
+                    candidates.append(outputs_address[i][0])
+                    valid += 1
+            else:
+                continue
 
 # get voters
 
@@ -133,14 +147,19 @@ for candidate in set(candidates):
 
 last = sorted(results.items(), key=lambda t: t[1], reverse=True)
 
-candidate_file = open('candidates.txt', 'w')
+# candidate_file = open('candidates.txt', 'w')
 
 for (x, y) in last:
-    if y > 10:
-        print(x, ' : ', y)
-        # line = x + ' : ' + str(y) + '\n'
-        # candidate_file.write(line)
+    if x in candidates_init:
+        if y > 10:
+            print(x, ' : ', y)
+            # line = x + ' : ' + str(y) + '\n'
+            # candidate_file.write(line)
 
 # candidate_file.close()
+
+invalid = total - valid
+print('total ballots : ', total, '\nvalid ballots : ',
+      valid, '\ninvalid ballots : ', invalid)
 
 # print (latest_block.hash,latest_block.time,latest_block.height,latest_block.block_index)

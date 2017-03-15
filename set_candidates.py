@@ -11,6 +11,6 @@ def set_candidates():
         candidates.append(candidate)
 
     for i in range(int(can_num)):
-        print("The {} one:".format(ordinal(i+1)),candidates[i])
+        print("The {} candidate: ".format(ordinal(i+1)),candidates[i])
 
     return candidates

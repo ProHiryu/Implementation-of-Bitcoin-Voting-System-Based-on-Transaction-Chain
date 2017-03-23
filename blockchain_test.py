@@ -32,7 +32,7 @@ candidates_init = set_candidates()
 start_height = 452379
 end_height = 452385
 
-# start_height, end_height = set_time(step = 3)
+start_height, end_height = set_time(step = 3)
 
 # latest_block = blockexplorer.get_latest_block()
 #

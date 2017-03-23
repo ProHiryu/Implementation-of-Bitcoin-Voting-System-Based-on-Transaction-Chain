@@ -32,7 +32,7 @@ candidates_init = set_candidates()
 start_height = 452379
 end_height = 452385
 
-start_height, end_height = set_time(step = 3)
+# start_height, end_height = set_time(step = 3)
 
 # latest_block = blockexplorer.get_latest_block()
 #
@@ -99,6 +99,31 @@ for block in blocks:
 #         for address in outputs_address[i]:
 #             print('The output address: ' + str(address))
 #         print('')
+
+
+# write the input and output data
+
+input_file = open('input.txt', 'w')
+output_file = open('output.txt', 'w')
+
+for i in range(len(outputs_address)):
+    if ((len(inputs_address[i]) < 1) or (len(outputs_address[i]) < 1)):
+        continue
+    for address in outputs_address[i]:
+        if address == None:
+            continue
+        output_file.write(address)
+        output_file.write(' ')
+    output_file.write('\n')
+    for address in inputs_address[i]:
+        if address == None:
+            continue
+        input_file.write(address)
+        input_file.write(' ')
+    input_file.write('\n')
+
+input_file.close()
+output_file.close()
 
 valid = 0
 invalid = 0

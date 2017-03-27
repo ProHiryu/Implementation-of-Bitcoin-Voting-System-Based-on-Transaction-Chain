@@ -4,8 +4,8 @@
 
 > 列出两个主要网络的API
 
-- [block meta]("https://blockmeta.com/docs#id_s1_s2-4")
-- [block chain]("https://blockchain.info/zh-cn/api/blockchain_api")
+- [block meta](https://blockmeta.com/docs#id_s1_s2-4)
+- [block chain](https://blockchain.info/zh-cn/api/blockchain_api)
 
 一些将要使用的API会在下面列出来
 
@@ -21,7 +21,7 @@ pip install blockchain
 
 调用测试过程中出现了一个很严重的问题：
 
-![]("/image/error1.png")
+![](/image/error1.png)
 
 **_最后证明这个问题的来源是我的脚本文件名字也是blockchain.py，所以系统会直接从这个文件夹当中去寻找blockexplorer，将名字改了就没事了，哇，弄了一上午终于发现了这个愚蠢的问题，我感觉自己很傻_**
 

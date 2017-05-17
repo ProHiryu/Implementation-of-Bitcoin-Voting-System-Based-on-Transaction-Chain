@@ -1,0 +1,31 @@
+{
+  "Type": 1,
+  "Data": [
+    {
+      "Address": "12cgpFdJViXbwHbhrA3TuW1EGnL25Zqc3P",
+      "Name": "A"
+    },
+    {
+      "Address": "1HdVm41y2QE5CGjkgtmCFo5PrYz5cBiySz",
+      "Name": "B"
+    },
+    {
+      "Address": "38A6nGSMR59WHVnj9gaJ2Cm62y9kFE318i",
+      "Name": "C"
+    },
+    {
+      "Address": "3KDgKr3qov4Ws5WPnaA2RHjcE1N2UeVYs3",
+      "Name": "D"
+    },
+    {
+      "Address": "3Q9SPyCN95szQUoQYgAHKgdhC3YnRsrFrW",
+      "Name": "E"
+    },
+    {
+      "Address": "3BZhnWLQ88YDhZfnPnRGzZ8TfYXtZLfAZR",
+      "Name": "F"
+    }
+  ],
+  "Numbers": 6,
+  "Upper limit": 4
+}

@@ -1,3 +1,4 @@
+import seaborn
 import matplotlib.pyplot as plt
 from matplotlib import style
 import numpy as np
@@ -7,7 +8,7 @@ import json
 from pprint import pprint
 
 
-style.use('ggplot')
+# style.use('ggplot')
 
 
 def draw(title):

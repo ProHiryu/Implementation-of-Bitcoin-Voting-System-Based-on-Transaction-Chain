@@ -1,6 +1,10 @@
 {
+  "Time": "2017-05-12",
+  "Contractor": "SJTU",
+  "Name": "Voting",
   "Data": [
     {
+      "Location": "SH",
       "Addresses": [
         "1GB8Cpo8hiFNBx1L1ctaUMQ5VysbvgeEN1",
         "1JVP9Rr8KbiW3PUbgLrwkufw4VR8MgrmT1",
@@ -19,8 +23,7 @@
         "1775vaN3wAd1Wks1xkKpyNrkJsGhUyc9sP",
         "15tr63ag4GDW4R6tFXXdGy24LJvK4vCiF7",
         "1NBbKLB7H4u7p2MARSyzwbw9bcWQLuU3WR"
-      ],
-      "Location": "SH"
+      ]
     },
     {
       "Addresses": [
@@ -63,8 +66,5 @@
       ],
       "Location": "NY"
     }
-  ],
-  "Time": "2017-05-12",
-  "Contractor": "SJTU",
-  "Name": "Voting"
+  ]
 }
